@@ -4,17 +4,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <img
-          src="/img/logo/logo.png"
-          alt="Logo"
-          style={{
-            display: "block",
-            margin: "0 auto 2rem auto",
-            maxWidth: "180px",
-            width: "100%",
-            height: "auto",
-          }}
-        />
         <h1 className={styles["responsive-title"]}>
           <span
             style={{
