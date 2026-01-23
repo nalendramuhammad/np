@@ -33,7 +33,10 @@ export default function Footer() {
           : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <span className="font-satoshi font-bold">feel free to</span>
+      <span className="font-satoshi font-bold">
+        this website is currently under development, for more
+        project/information feel free to
+      </span>
       <a
         href="mailto:hi@nalendra.work"
         className="font-tiempos italic underline decoration-1 underline-offset-2 hover:opacity-70 transition-opacity cursor-none"
