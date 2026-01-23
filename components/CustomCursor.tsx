@@ -76,7 +76,7 @@ export default function CustomCursor({
       ref={cursorRef}
       className={`fixed top-0 left-0 ${
         isPointer ? "w-10 h-10" : "w-8 h-8"
-      } bg-white mix-blend-difference rounded-full flex items-center justify-center pointer-events-none z-[60] -translate-x-1/2 -translate-y-1/2 opacity-0 scale-0 transition-[width,height] duration-300`}
+      } bg-white mix-blend-difference rounded-full hidden lg:flex items-center justify-center pointer-events-none z-[60] -translate-x-1/2 -translate-y-1/2 opacity-0 scale-0 transition-[width,height] duration-300`}
     >
       {isPointer ? (
         <svg

@@ -29,15 +29,15 @@ export default async function ProjectPage({
   return (
     <>
       <PageTransitionWrapper>
-        <div className="min-h-screen cursor-none">
+        <div className="min-h-screen lg:cursor-none">
           {/* Sticky Header Wrapper */}
-          <div className="sticky top-0 z-50 bg-[#f5f5f5] px-6 pt-8 pb-12 md:px-12 md:pt-16 md:pb-12">
-            <header className="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center font-satoshi">
-              <div className="mb-8 md:mb-0 flex items-center gap-3">
+          <div className="sticky top-0 z-50 bg-[#f5f5f5] px-6 pt-6 pb-4 md:px-12 md:pt-16 md:pb-12">
+            <header className="w-full max-w-5xl mx-auto flex flex-row justify-between items-center font-satoshi">
+              <div className="flex items-center gap-3">
                 <BackButton />
               </div>
 
-              <div className="flex gap-1 items-baseline text-xs text-gray-500 tracking-wider">
+              <div className="flex gap-1 items-baseline text-[8px] md:text-xs text-gray-500 tracking-wider">
                 <span className="font-mono font-bold text-black">
                   {project.no}
                 </span>
@@ -46,13 +46,13 @@ export default async function ProjectPage({
           </div>
 
           {/* Main Content */}
-          <div className="px-6 md:px-12 pb-32 md:pb-40">
-            <main className="w-full max-w-5xl mx-auto space-y-24 md:space-y-32 pt-4 md:pt-8">
-              <div className="flex flex-col items-center text-center space-y-10">
-                <h1 className="font-satoshi font-bold text-4xl md:text-6xl tracking-tight">
+          <div className="px-6 md:px-12 pb-12 md:pb-40">
+            <main className="w-full max-w-5xl mx-auto space-y-12 md:space-y-32 pt-4 md:pt-8">
+              <div className="flex flex-col items-center text-center space-y-4 md:space-y-10">
+                <h1 className="font-satoshi font-bold text-xl md:text-6xl tracking-tight">
                   {project.name}
                 </h1>
-                <p className="font-satoshi text-sm md:text-base text-black opacity-50 max-w-4xl leading-relaxed">
+                <p className="font-satoshi text-[10px] md:text-base text-black opacity-50 max-w-4xl leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -73,21 +73,21 @@ export default async function ProjectPage({
               {/* Project Details */}
               {/* @ts-ignore */}
               {project.details && (
-                <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-32">
-                  <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-32">
+                  <div className="space-y-2 md:space-y-4">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       Timeline
                     </h3>
-                    <p className="font-satoshi text-sm text-gray-600 leading-relaxed">
+                    <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed">
                       {project.details.timeline}
                     </p>
                   </div>
 
-                  <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                  <div className="space-y-2 md:space-y-4">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       Responsibility
                     </h3>
-                    <ul className="font-satoshi text-sm text-gray-600 space-y-1 leading-relaxed">
+                    <ul className="font-satoshi text-[10px] md:text-sm text-gray-600 space-y-1 leading-relaxed">
                       {project.details.responsibility.map(
                         (item: string, i: number) => (
                           <li key={i}>{item}</li>
@@ -96,22 +96,22 @@ export default async function ProjectPage({
                     </ul>
                   </div>
 
-                  <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                  <div className="space-y-2 md:space-y-4">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       Tools
                     </h3>
-                    <ul className="font-satoshi text-sm text-gray-600 space-y-1 leading-relaxed">
+                    <ul className="font-satoshi text-[10px] md:text-sm text-gray-600 space-y-1 leading-relaxed">
                       {project.details.tools.map((item: string, i: number) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                  <div className="space-y-2 md:space-y-4">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       Context
                     </h3>
-                    <p className="font-satoshi text-sm text-gray-600 leading-relaxed">
+                    <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed">
                       {project.details.context}
                     </p>
                   </div>
@@ -121,20 +121,20 @@ export default async function ProjectPage({
               {/* Problem Overview */}
               {/* @ts-ignore */}
               {project.problemOverview && (
-                <div className="w-full space-y-12">
+                <div className="w-full space-y-6 md:space-y-12">
                   <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       {/* @ts-ignore */}
                       {project.problemOverviewTitle || "Problem Overview"}
                     </h3>
                     {Array.isArray(project.problemOverview) ? (
-                      <div className="space-y-6">
+                      <div className="space-y-4 md:space-y-6">
                         {project.problemOverview.map((item: any, i: number) => {
                           if (item.type === "image") {
                             return (
                               <div
                                 key={i}
-                                className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden my-6"
+                                className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden my-4 md:my-6"
                               >
                                 <Image
                                   src={item.src}
@@ -149,7 +149,7 @@ export default async function ProjectPage({
                             return (
                               <p
                                 key={i}
-                                className="font-satoshi text-sm text-gray-600 leading-relaxed whitespace-pre-line"
+                                className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed whitespace-pre-line"
                               >
                                 {item.content}
                               </p>
@@ -161,10 +161,10 @@ export default async function ProjectPage({
                               key={i}
                               className="space-y-2"
                             >
-                              <h4 className="font-satoshi font-bold text-sm text-gray-900">
+                              <h4 className="font-satoshi font-bold text-[10px] md:text-sm text-gray-900">
                                 {item.question}
                               </h4>
-                              <p className="font-satoshi text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                              <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed whitespace-pre-line">
                                 {item.answer}
                               </p>
                             </div>
@@ -172,7 +172,7 @@ export default async function ProjectPage({
                         })}
                       </div>
                     ) : (
-                      <p className="font-satoshi text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                      <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed whitespace-pre-line">
                         {project.problemOverview}
                       </p>
                     )}
@@ -197,70 +197,54 @@ export default async function ProjectPage({
               {/* Solution & Wireframe */}
               {/* @ts-ignore */}
               {project.solution && (
-                <div className="w-full space-y-12">
+                <div className="w-full space-y-6 md:space-y-12">
                   <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       {/* @ts-ignore */}
                       {project.solutionTitle || "The Solution"}
                     </h3>
                     {Array.isArray(project.solution) ? (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
                         {project.solution.map((item: any, i: number) => (
                           <div
                             key={i}
                             className="space-y-2"
                           >
-                            <h4 className="font-satoshi font-bold text-sm text-gray-900">
+                            <h4 className="font-satoshi font-bold text-[10px] md:text-sm text-gray-900">
                               {item.title}
                             </h4>
-                            <p className="font-satoshi text-sm text-gray-600 leading-relaxed">
+                            <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed">
                               {item.description}
                             </p>
                           </div>
                         ))}
                       </div>
                     ) : (
-                      <p className="font-satoshi text-sm text-gray-600 leading-relaxed">
+                      <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed">
                         {project.solution}
                       </p>
                     )}
                   </div>
-
-                  {/* Wireframe Image */}
-                  {/* @ts-ignore */}
-                  {project.wireframe && (
-                    <div className="space-y-4">
-                      <div className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden">
-                        <Image
-                          // @ts-ignore
-                          src={project.wireframe}
-                          alt="Wireframe"
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                  )}
                 </div>
               )}
 
               {/* User Flow Section */}
               {/* @ts-ignore */}
               {project.userFlow && (
-                <div className="w-full space-y-12">
+                <div className="w-full space-y-6 md:space-y-12">
                   <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       {/* @ts-ignore */}
                       {project.userFlowTitle || "The User Flow"}
                     </h3>
-                    <div className="space-y-6">
+                    <div className="space-y-4 md:space-y-6">
                       {/* @ts-ignore */}
                       {project.userFlow.map((item: any, i: number) => {
                         if (item.type === "image") {
                           return (
                             <div
                               key={i}
-                              className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden my-6"
+                              className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden my-4 md:my-6"
                             >
                               <Image
                                 src={item.src}
@@ -274,7 +258,7 @@ export default async function ProjectPage({
                         return (
                           <p
                             key={i}
-                            className="font-satoshi text-sm text-gray-600 leading-relaxed whitespace-pre-line"
+                            className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed whitespace-pre-line"
                           >
                             {item.content}
                           </p>
@@ -285,12 +269,34 @@ export default async function ProjectPage({
                 </div>
               )}
 
+              {/* Wireframe Image */}
+              {/* @ts-ignore */}
+              {project.wireframe && (
+                <div className="w-full space-y-6 md:space-y-12">
+                  <div className="space-y-4">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
+                      {/* @ts-ignore */}
+                      {project.wireframeTitle || "Wireframe"}
+                    </h3>
+                    <div className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden">
+                      <Image
+                        // @ts-ignore
+                        src={project.wireframe}
+                        alt="Wireframe"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* The Design */}
               {/* @ts-ignore */}
               {project.design && (
-                <div className="w-full space-y-12">
+                <div className="w-full space-y-6 md:space-y-12">
                   <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       {/* @ts-ignore */}
                       {project.designTitle || "The Design"}
                     </h3>
@@ -302,9 +308,9 @@ export default async function ProjectPage({
                     project.design.map((item: any, index: number) => (
                       <div
                         key={index}
-                        className="space-y-4"
+                        className="space-y-2 md:space-y-4"
                       >
-                        <p className="font-satoshi text-xs text-gray-400 tracking-wider">
+                        <p className="font-satoshi text-[8px] md:text-xs text-gray-400 tracking-wider">
                           {item.title}
                         </p>
                         <div className="w-full aspect-[16/9] bg-[#f5f5f5] relative overflow-hidden">
@@ -323,15 +329,39 @@ export default async function ProjectPage({
               {/* Conclusion */}
               {/* @ts-ignore */}
               {project.conclusion && (
-                <div className="w-full space-y-12">
-                  <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
-                      Conclusion
-                    </h3>
-                    <p className="font-satoshi text-sm text-gray-600 leading-relaxed whitespace-pre-line">
-                      {project.conclusion}
-                    </p>
-                  </div>
+                <div className="w-full space-y-6 md:space-y-12">
+                  {project.slug === "pipp-sso" ? (
+                    <div className="space-y-4 md:space-y-6 flex flex-col items-center text-center max-w-4xl mx-auto">
+                      <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
+                        Conclusion
+                      </h3>
+                      <p className="font-satoshi text-xs md:text-3xl text-gray-900 leading-relaxed">
+                        {/* @ts-ignore */}
+                        {project.conclusion.split("*").map((part, index) =>
+                          index % 2 === 1 ? (
+                            <span
+                              key={index}
+                              className="font-tiempos italic font-light"
+                            >
+                              {part}
+                            </span>
+                          ) : (
+                            part
+                          ),
+                        )}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
+                        Conclusion
+                      </h3>
+                      <p className="font-satoshi text-[10px] md:text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                        {/* @ts-ignore */}
+                        {project.conclusion}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -350,7 +380,7 @@ export default async function ProjectPage({
                   </div>
                   {/* @ts-ignore */}
                   {project.documentationImageCaption && (
-                    <p className="font-satoshi text-xs text-gray-400">
+                    <p className="font-satoshi text-[8px] md:text-xs text-gray-400">
                       {project.documentationImageCaption}
                     </p>
                   )}
@@ -360,9 +390,9 @@ export default async function ProjectPage({
               {/* The Result / Full Design */}
               {/* @ts-ignore */}
               {(project.resultEmbed || project.fullDesign) && (
-                <div className="w-full space-y-12">
+                <div className="w-full space-y-6 md:space-y-12">
                   <div className="space-y-4">
-                    <h3 className="font-satoshi font-bold text-sm uppercase tracking-wider">
+                    <h3 className="font-satoshi font-bold text-[10px] md:text-sm uppercase tracking-wider">
                       The Result
                     </h3>
                   </div>

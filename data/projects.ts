@@ -58,6 +58,25 @@ export const projects = [
         alt: "User Flow Diagram",
       },
     ],
+    wireframeTitle: "The Wireframe",
+    wireframe: "/img/contents/sso/wireframe.png",
+    designTitle: "The Interface",
+    design: [
+      {
+        image: "/img/contents/sso/login.png",
+        title: "Unified Login Page",
+      },
+      {
+        image: "/img/contents/sso/dashboard.png",
+        title: "App Launcher Dashboard",
+      },
+      {
+        image: "/img/contents/sso/table-sso.png",
+        title: "Data Table",
+      },
+    ],
+    conclusion:
+      "This scalable Identity Provider architecture lays the groundwork for KKP’s long-term digital *resilience*. By decoupling authentication from application logic, we established a modular foundation that accelerates future integrations, ensuring the ecosystem remains adaptable to evolving *technological* demands.",
   },
   {
     no: "#2",
@@ -159,7 +178,7 @@ export const projects = [
   //   description: "Project description for Adhimix Yuk Absen 3",
   // },
   {
-    no: "#4",
+    no: "#3",
     name: "Adhimix Yuk Absen!",
     year: "2024",
     id: "adhimix",

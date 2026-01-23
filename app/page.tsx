@@ -45,31 +45,31 @@ export default function RootPage() {
   return (
     <>
       <div
-        className={`min-h-screen cursor-none transition-all duration-1000 ease-in-out ${
+        className={`min-h-screen lg:cursor-none transition-all duration-1000 ease-in-out ${
           isLoading || isExiting
             ? "opacity-0 translate-y-8"
             : "opacity-100 translate-y-0"
         }`}
       >
         {/* Header */}
-        <div className="sticky top-0 z-50 bg-[#f5f5f5] px-6 pt-8 pb-6 md:px-12 md:pt-16 md:pb-6">
-          <header className="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-8 md:mb-0 space-y-1">
-              <h1 className="font-satoshi font-bold text-lg leading-tight">
+        <div className="sticky top-0 z-50 bg-[#f5f5f5] px-6 pt-6 pb-4 md:px-12 md:pt-16 md:pb-6">
+          <header className="w-full max-w-5xl mx-auto flex flex-row justify-between items-end md:items-center">
+            <div className="space-y-1">
+              <h1 className="font-satoshi font-bold text-base md:text-lg leading-tight">
                 nalendra
               </h1>
-              <p className="text-sm text-gray-800 leading-tight">
+              <p className="text-xs md:text-sm text-gray-800 leading-tight">
                 <span className="font-satoshi font-bold">something about</span>{" "}
                 <span className="font-tiempos italic">software.</span>
               </p>
             </div>
 
-            <div className="flex gap-1">
+            <div className="flex flex-wrap justify-end md:justify-start gap-1 items-baseline max-w-[50%] md:max-w-none text-right md:text-left">
               <span
                 onClick={() =>
                   window.open("https://instagram.com/nalendrrra", "_blank")
                 }
-                className="font-satoshi font-bold text-xs hover:text-gray-600 transition-colors cursor-none"
+                className="font-satoshi font-bold text-[10px] md:text-xs hover:text-gray-600 transition-colors lg:cursor-none"
                 data-clickable="true"
               >
                 instagram,
@@ -81,7 +81,7 @@ export default function RootPage() {
                     "_blank",
                   )
                 }
-                className="font-satoshi font-bold text-xs hover:text-gray-600 transition-colors cursor-none"
+                className="font-satoshi font-bold text-[10px] md:text-xs hover:text-gray-600 transition-colors lg:cursor-none"
                 data-clickable="true"
               >
                 behance,
@@ -93,7 +93,7 @@ export default function RootPage() {
                     "_blank",
                   )
                 }
-                className="font-tiempos italic text-xs hover:text-gray-600 transition-colors cursor-none"
+                className="font-tiempos italic text-[10px] md:text-xs hover:text-gray-600 transition-colors lg:cursor-none"
                 data-clickable="true"
               >
                 linkedin
@@ -103,28 +103,28 @@ export default function RootPage() {
         </div>
 
         {/* Main Content / Projects */}
-        <div className="px-6 md:px-12 pb-32 md:pb-40">
+        <div className="px-6 md:px-12 pb-12 md:pb-40">
           <main className="w-full max-w-5xl mx-auto space-y-12 pt-12 md:pt-24">
             {projects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => handleProjectClick(project.slug)}
-                className="block w-full group cursor-none"
+                className="block w-full group lg:cursor-none"
                 data-clickable="true"
               >
                 <article
                   className="relative"
                   data-aos="fade-up"
                 >
-                  <div className="flex justify-between items-baseline mb-6 font-satoshi px-1">
-                    <h2 className="text-base font-medium tracking-wide">
+                  <div className="flex justify-between items-baseline mb-3 md:mb-6 font-satoshi px-1">
+                    <h2 className="text-xs md:text-base font-medium tracking-wide">
                       {project.name}
                     </h2>
-                    <span className="text-xs text-gray-500 font-mono tracking-wider">
+                    <span className="text-[8px] md:text-xs text-gray-500 font-mono tracking-wider">
                       [{project.year}]
                     </span>
                   </div>
-                  <div className="w-full aspect-[16/9] bg-[#e5e5e5] transition-colors duration-300 group-hover:bg-[#d5d5d5] relative overflow-hidden cursor-none">
+                  <div className="w-full aspect-[16/9] bg-[#e5e5e5] transition-colors duration-300 group-hover:bg-[#d5d5d5] relative overflow-hidden lg:cursor-none">
                     {/* @ts-ignore */}
                     {project.thumbnail && (
                       <Image

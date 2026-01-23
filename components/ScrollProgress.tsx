@@ -28,7 +28,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed bottom-8 right-8 z-40 font-mono text-xs mix-blend-difference text-gray-500 flex flex-col items-end leading-none gap-0.5">
+    <div className="fixed bottom-8 right-8 z-40 font-mono text-[8px] md:text-xs mix-blend-difference text-gray-500 flex flex-col items-end leading-none gap-0.5">
       <span className="tabular-nums">{scrollProgress}%</span>
     </div>
   );

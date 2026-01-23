@@ -8,7 +8,7 @@ export default function BackButton() {
   return (
     <div
       onClick={() => handleExit("/")}
-      className="hover:text-gray-600 transition-colors cursor-none"
+      className="hover:text-gray-600 transition-colors lg:cursor-none"
       aria-label="Back to home"
       data-clickable="true"
     >
