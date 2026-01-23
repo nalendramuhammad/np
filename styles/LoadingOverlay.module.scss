@@ -1,0 +1,30 @@
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f5f5f5;
+  z-index: 9999;
+  transition: opacity 0.8s ease-out;
+  opacity: 1;
+  pointer-events: all;
+  will-change: opacity;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingText {
+  font-family: "Satoshi", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-satoshi: "Satoshi", "Arial", sans-serif;
+  --font-tiempos: "TestTiemposHeadline", "Times New Roman", serif;
+  --font-humane: "Humane", "Arial", sans-serif;
+}
+
+/* Font Faces */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/Satoshi-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/Satoshi-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TestTiemposHeadline";
+  src: url("/fonts/test tempost headline/TestTiemposHeadline-BoldItalic.otf")
+    format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TestTiemposHeadline";
+  src: url("/fonts/test tempost headline/TestTiemposHeadline-LightItalic.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Humane";
+  src: url("/fonts/humane/Humane-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #f5f5f5; /* Adjusted to match the image's light grey background */
+  --foreground: #111111;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-satoshi);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility for hiding scrollbar if needed, similar to previous .noScroll */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}

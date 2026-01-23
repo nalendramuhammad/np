@@ -1,34 +1,29 @@
+import LoadingOverlay from "../components/LoadingOverlay";
+import SmoothScrolling from "../components/SmoothScrolling";
+import { LoadingProvider } from "../contexts/LoadingContext";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "nalendra",
-  description: "this website is on development",
+  title: "Product Designer, Web Dev",
+  description: "Nalendra's Portfolio",
   icons: {
-    icon: "/img/logo/logo.png",
+    icon: "/img/nalenhead.png",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body>
+        <LoadingProvider>
+          <LoadingOverlay />
+          <SmoothScrolling>{children}</SmoothScrolling>
+        </LoadingProvider>
       </body>
     </html>
   );
