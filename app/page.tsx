@@ -143,7 +143,6 @@ export default function RootPage() {
       </div>
       <ScrollProgress />
       <ScrollToTop />
-      <Footer />
       <CustomCursor />
     </>
   );

@@ -430,7 +430,6 @@ export default async function ProjectPage({
       </PageTransitionWrapper>
       <ScrollProgress />
       <ScrollToTop />
-      <Footer />
       <CustomCursor />
     </>
   );
