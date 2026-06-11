@@ -56,7 +56,7 @@ export default function RootPage() {
           <header className="w-full max-w-5xl mx-auto flex flex-row justify-between items-end md:items-center">
             <div className="space-y-1">
               <h1 className="font-satoshi font-bold text-base md:text-lg leading-tight">
-                nalendra
+                farrel faisal
               </h1>
               <p className="text-xs md:text-sm text-gray-800 leading-tight">
                 <span className="font-satoshi font-bold">something about</span>{" "}
@@ -65,7 +65,7 @@ export default function RootPage() {
             </div>
 
             <div className="flex flex-wrap justify-end md:justify-start gap-1 items-baseline max-w-[50%] md:max-w-none text-right md:text-left">
-              <span
+              {/* <span
                 onClick={() =>
                   window.open("https://instagram.com/nalendrrra", "_blank")
                 }
@@ -85,11 +85,11 @@ export default function RootPage() {
                 data-clickable="true"
               >
                 behance,
-              </span>
+              </span> */}
               <span
                 onClick={() =>
                   window.open(
-                    "https://linkedin.com/in/muhammadwahyunalendra",
+                    "https://www.linkedin.com/in/mohammed-farrel-faisal/",
                     "_blank",
                   )
                 }
