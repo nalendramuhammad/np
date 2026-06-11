@@ -6,7 +6,7 @@ import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Product Designer, Web Dev",
-  description: "Nalendra's Portfolio",
+  description: "farrel faisal's Portfolio",
   icons: {
     icon: "/img/nalenhead.png",
   },
