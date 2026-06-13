@@ -56,7 +56,7 @@ export default function RootPage() {
           <header className="w-full max-w-5xl mx-auto flex flex-row justify-between items-end md:items-center">
             <div className="space-y-1">
               <h1 className="font-satoshi font-bold text-base md:text-lg leading-tight">
-                farrel faisal
+                nalendra
               </h1>
               <p className="text-xs md:text-sm text-gray-800 leading-tight">
                 <span className="font-satoshi font-bold">something about</span>{" "}
@@ -89,7 +89,7 @@ export default function RootPage() {
               <span
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/mohammed-farrel-faisal/",
+                    "https://www.linkedin.com/in/muhammadwahyunalendra//",
                     "_blank",
                   )
                 }
