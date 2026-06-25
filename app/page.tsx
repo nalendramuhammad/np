@@ -65,7 +65,7 @@ export default function RootPage() {
             </div>
 
             <div className="flex flex-wrap justify-end md:justify-start gap-1 items-baseline max-w-[50%] md:max-w-none text-right md:text-left">
-              {/* <span
+              <span
                 onClick={() =>
                   window.open("https://instagram.com/nalendrrra", "_blank")
                 }
@@ -85,7 +85,7 @@ export default function RootPage() {
                 data-clickable="true"
               >
                 behance,
-              </span> */}
+              </span>
               <span
                 onClick={() =>
                   window.open(
