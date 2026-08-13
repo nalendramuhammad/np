@@ -11,6 +11,9 @@ import ScrollProgress from "../components/ScrollProgress";
 import ScrollHint from "../components/ScrollHint";
 import CustomCursor from "../components/CustomCursor";
 import ScrollToTop from "../components/ScrollToTop";
+import ComingSoonToast, {
+  COMING_SOON_MESSAGE,
+} from "../components/ComingSoonToast";
 import Footer from "../components/Footer";
 import { projects } from "../data/projects";
 
@@ -18,6 +21,7 @@ export default function RootPage() {
   const { isLoading } = useLoading();
   const router = useRouter();
   const [isExiting, setIsExiting] = useState(false);
+  const [showComingSoonToast, setShowComingSoonToast] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -36,10 +40,15 @@ export default function RootPage() {
     return () => document.body.classList.remove("no-scroll");
   }, [isLoading]);
 
-  const handleProjectClick = (slug: string) => {
+  const handleProjectClick = (project: (typeof projects)[number]) => {
+    if (project.comingSoon) {
+      setShowComingSoonToast(true);
+      return;
+    }
+
     setIsExiting(true);
     setTimeout(() => {
-      router.push(`/projects/${slug}`);
+      router.push(`/projects/${project.slug}`);
     }, 1000);
   };
 
@@ -109,9 +118,11 @@ export default function RootPage() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                onClick={() => handleProjectClick(project.slug)}
+                onClick={() => handleProjectClick(project)}
                 className="block w-full group lg:cursor-none"
-                data-clickable="true"
+                {...(project.comingSoon
+                  ? { "data-cursor-label": COMING_SOON_MESSAGE }
+                  : { "data-clickable": "true" })}
               >
                 <article
                   className="relative"
@@ -125,14 +136,22 @@ export default function RootPage() {
                       [{project.year}]
                     </span>
                   </div>
-                  <div className="w-full aspect-[16/9] bg-[#e5e5e5] transition-colors duration-300 group-hover:bg-[#d5d5d5] relative overflow-hidden lg:cursor-none">
+                  <div
+                    className={`w-full aspect-[16/9] bg-[#e5e5e5] transition-colors duration-300 relative overflow-hidden lg:cursor-none ${
+                      project.comingSoon
+                        ? ""
+                        : "group-hover:bg-[#d5d5d5]"
+                    }`}
+                  >
                     {/* @ts-ignore */}
                     {project.thumbnail && (
                       <Image
                         src={project.thumbnail}
                         alt={project.name}
                         fill
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        className={`object-cover transition-transform duration-700 ease-out ${
+                          project.comingSoon ? "" : "group-hover:scale-105"
+                        }`}
                       />
                     )}
                   </div>
@@ -145,6 +164,10 @@ export default function RootPage() {
       <ScrollProgress />
       <ScrollHint hidden={isLoading || isExiting} />
       <ScrollToTop />
+      <ComingSoonToast
+        visible={showComingSoonToast}
+        onHide={() => setShowComingSoonToast(false)}
+      />
       <CustomCursor />
     </>
   );

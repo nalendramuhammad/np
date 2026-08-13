@@ -9,9 +9,11 @@ import ScrollToTop from "../../../components/ScrollToTop";
 import Footer from "../../../components/Footer";
 
 export function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects
+    .filter((project) => !project.comingSoon)
+    .map((project) => ({
+      slug: project.slug,
+    }));
 }
 
 export default async function ProjectPage({
@@ -22,7 +24,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
-  if (!project) {
+  if (!project || project.comingSoon) {
     notFound();
   }
 

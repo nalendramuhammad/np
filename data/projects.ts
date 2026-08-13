@@ -9,41 +9,42 @@ export const projectCategories: {
 ];
 
 export const projects = [
-  // {
-  //   no: "#1",
-  //   name: "MOMNT",
-  //   year: "2026",
-  //   id: "momnt",
-  //   slug: "momnt",
-  //   category: "product-design-web-dev",
-  //   description:
-  //     "A playful web based photobooth built for people who just want to have fun. No accounts, no uploads, and no stored photos. Just take your pictures and download them instantly.",
-  //   thumbnail: "/img/contents/momnt/mom-thumbnail.jpg",
-  //   details: {
-  //     timeline: "July 2026",
-  //     responsibility: ["Built the entire product from scratch"],
-  //     tools: ["Figma", "Next.js", "TypeScript", "Cursor"],
-  //     context: "Self Initiated Project",
-  //   },
-  //   problemOverviewTitle: "The Context",
-  //   problemOverview: [
-  //     {
-  //       type: "text",
-  //       content:
-  //         "Most online photobooths focus on filters, effects, and accounts, but often overlook the experience itself. Many require users to sign in, upload photos to a server, or store images temporarily, adding unnecessary friction to what should be a quick and enjoyable moment.",
-  //     },
-  //     {
-  //       type: "image",
-  //       src: "/img/contents/momnt/context.png",
-  //       alt: "MOMNT Product Vision",
-  //     },
-  //     {
-  //       type: "text",
-  //       content:
-  //         "MOMNT was created to challenge that approach by making the experience as effortless as possible. Users simply allow camera access, take six photos, download the final strip, and leave. No login, no cloud storage, and no unnecessary steps. Every interaction is paired with playful copywriting and intentionally imperfect templates to create a memorable experience that feels more like a fun internet project than a traditional photobooth.",
-  //     },
-  //   ],
-  // },
+  {
+    no: "#1",
+    name: "MOMNT",
+    year: "2026",
+    id: "momnt",
+    slug: "momnt",
+    category: "product-design-web-dev",
+    comingSoon: true,
+    description:
+      "A playful web based photobooth built for people who just want to have fun. No accounts, no uploads, and no stored photos. Just take your pictures and download them instantly.",
+    thumbnail: "/img/contents/momnt/mom-thumbnail.jpg",
+    details: {
+      timeline: "July 2026",
+      responsibility: ["Built the entire product from scratch"],
+      tools: ["Figma", "Next.js", "TypeScript", "Cursor"],
+      context: "Self Initiated Project",
+    },
+    problemOverviewTitle: "The Context",
+    problemOverview: [
+      {
+        type: "text",
+        content:
+          "Most online photobooths focus on filters, effects, and accounts, but often overlook the experience itself. Many require users to sign in, upload photos to a server, or store images temporarily, adding unnecessary friction to what should be a quick and enjoyable moment.",
+      },
+      {
+        type: "image",
+        src: "/img/contents/momnt/context.png",
+        alt: "MOMNT Product Vision",
+      },
+      {
+        type: "text",
+        content:
+          "MOMNT was created to challenge that approach by making the experience as effortless as possible. Users simply allow camera access, take six photos, download the final strip, and leave. No login, no cloud storage, and no unnecessary steps. Every interaction is paired with playful copywriting and intentionally imperfect templates to create a memorable experience that feels more like a fun internet project than a traditional photobooth.",
+      },
+    ],
+  },
   {
     no: "#2",
     name: "PIPP KKP - Single Sign-On",
