@@ -99,7 +99,7 @@ export default function RootPage() {
               <span
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/muhammadwahyunalendra//",
+                    "https://www.linkedin.com/in/muhammadwahyunalendra/",
                     "_blank",
                   )
                 }
@@ -138,9 +138,7 @@ export default function RootPage() {
                   </div>
                   <div
                     className={`w-full aspect-[16/9] bg-[#e5e5e5] transition-colors duration-300 relative overflow-hidden lg:cursor-none ${
-                      project.comingSoon
-                        ? ""
-                        : "group-hover:bg-[#d5d5d5]"
+                      project.comingSoon ? "" : "group-hover:bg-[#d5d5d5]"
                     }`}
                   >
                     {/* @ts-ignore */}
