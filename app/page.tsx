@@ -8,6 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useLoading } from "../contexts/LoadingContext";
 import ScrollProgress from "../components/ScrollProgress";
+import ScrollHint from "../components/ScrollHint";
 import CustomCursor from "../components/CustomCursor";
 import ScrollToTop from "../components/ScrollToTop";
 import Footer from "../components/Footer";
@@ -59,8 +60,8 @@ export default function RootPage() {
                 nalendra
               </h1>
               <p className="text-xs md:text-sm text-gray-800 leading-tight">
-                <span className="font-satoshi font-bold">something about</span>{" "}
-                <span className="font-tiempos italic">software.</span>
+                <span className="font-satoshi font-bold">Creative</span>{" "}
+                <span className="font-tiempos italic">Spaces</span>
               </p>
             </div>
 
@@ -142,6 +143,7 @@ export default function RootPage() {
         </div>
       </div>
       <ScrollProgress />
+      <ScrollHint hidden={isLoading || isExiting} />
       <ScrollToTop />
       <CustomCursor />
     </>

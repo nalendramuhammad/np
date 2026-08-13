@@ -1,10 +1,56 @@
+export type ProjectCategory = "product-design-web-dev" | "graphic-design";
+
+export const projectCategories: {
+  id: ProjectCategory;
+  label: string;
+}[] = [
+  { id: "product-design-web-dev", label: "product design & web dev" },
+  { id: "graphic-design", label: "graphic design" },
+];
+
 export const projects = [
+  // {
+  //   no: "#1",
+  //   name: "MOMNT",
+  //   year: "2026",
+  //   id: "momnt",
+  //   slug: "momnt",
+  //   category: "product-design-web-dev",
+  //   description:
+  //     "A playful web based photobooth built for people who just want to have fun. No accounts, no uploads, and no stored photos. Just take your pictures and download them instantly.",
+  //   thumbnail: "/img/contents/momnt/mom-thumbnail.jpg",
+  //   details: {
+  //     timeline: "July 2026",
+  //     responsibility: ["Built the entire product from scratch"],
+  //     tools: ["Figma", "Next.js", "TypeScript", "Cursor"],
+  //     context: "Self Initiated Project",
+  //   },
+  //   problemOverviewTitle: "The Context",
+  //   problemOverview: [
+  //     {
+  //       type: "text",
+  //       content:
+  //         "Most online photobooths focus on filters, effects, and accounts, but often overlook the experience itself. Many require users to sign in, upload photos to a server, or store images temporarily, adding unnecessary friction to what should be a quick and enjoyable moment.",
+  //     },
+  //     {
+  //       type: "image",
+  //       src: "/img/contents/momnt/context.png",
+  //       alt: "MOMNT Product Vision",
+  //     },
+  //     {
+  //       type: "text",
+  //       content:
+  //         "MOMNT was created to challenge that approach by making the experience as effortless as possible. Users simply allow camera access, take six photos, download the final strip, and leave. No login, no cloud storage, and no unnecessary steps. Every interaction is paired with playful copywriting and intentionally imperfect templates to create a memorable experience that feels more like a fun internet project than a traditional photobooth.",
+  //     },
+  //   ],
+  // },
   {
-    no: "#1",
+    no: "#2",
     name: "PIPP KKP - Single Sign-On",
     year: "2025",
     id: "pipp-sso",
     slug: "pipp-sso",
+    category: "product-design-web-dev",
     description:
       "A unified authentication system designed for the Ministry of Marine Affairs and Fisheries (KKP) to streamline access across multiple applications. This Single Sign-On (SSO) solution improves user experience by allowing seamless navigation between various modules with a single set of credentials.",
     thumbnail: "/img/contents/sso/sso-thumbnail.png",
@@ -79,11 +125,12 @@ export const projects = [
       "This scalable Identity Provider architecture lays the groundwork for KKP’s long-term digital *resilience*. By decoupling authentication from application logic, we established a modular foundation that accelerates future integrations, ensuring the ecosystem remains adaptable to evolving *technological* demands.",
   },
   {
-    no: "#2",
+    no: "#3",
     name: "PIPP KKP - Data Entry",
     year: "2025",
     id: "pipp-kkp",
     slug: "pipp-kkp",
+    category: "product-design-web-dev",
     description:
       "A centralized data entry and information management system developed for the Ministry of Marine Affairs and Fisheries (KKP). This platform serves as the core of the Fishery Port Information System (PIPP), facilitating the collection, management, and reporting of fishery port data across Indonesia.",
     thumbnail: "/img/contents/dataentry/pipp-thumbnail.png",
@@ -178,11 +225,12 @@ export const projects = [
   //   description: "Project description for Adhimix Yuk Absen 3",
   // },
   {
-    no: "#3",
+    no: "#4",
     name: "Adhimix Yuk Absen!",
     year: "2024",
     id: "adhimix",
     slug: "adhimix",
+    category: "product-design-web-dev",
     description:
       "A mobile application designed to streamline employee attendance tracking, featuring real-time location verification, leave management, and shift scheduling.",
     thumbnail: "/img/contents/adhimix/thumbnail.png",
