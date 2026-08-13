@@ -16,12 +16,15 @@ import ComingSoonToast, {
 } from "../components/ComingSoonToast";
 import Footer from "../components/Footer";
 import { projects } from "../data/projects";
+import { EASTER_EGG_SUBTITLE } from "../data/easterEggMessages";
 
 export default function RootPage() {
   const { isLoading } = useLoading();
   const router = useRouter();
   const [isExiting, setIsExiting] = useState(false);
   const [showComingSoonToast, setShowComingSoonToast] = useState(false);
+  const [nalendraClickCount, setNalendraClickCount] = useState(0);
+  const [easterEggActive, setEasterEggActive] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -39,6 +42,25 @@ export default function RootPage() {
     }
     return () => document.body.classList.remove("no-scroll");
   }, [isLoading]);
+
+  useEffect(() => {
+    if (nalendraClickCount === 0) return;
+
+    const timer = setTimeout(() => setNalendraClickCount(0), 2000);
+    return () => clearTimeout(timer);
+  }, [nalendraClickCount]);
+
+  const handleNalendraClick = () => {
+    const nextCount = nalendraClickCount + 1;
+
+    if (nextCount >= 5) {
+      setEasterEggActive(true);
+      setNalendraClickCount(0);
+      return;
+    }
+
+    setNalendraClickCount(nextCount);
+  };
 
   const handleProjectClick = (project: (typeof projects)[number]) => {
     if (project.comingSoon) {
@@ -65,13 +87,27 @@ export default function RootPage() {
         <div className="sticky top-0 z-50 bg-[#f5f5f5] px-6 pt-6 pb-4 md:px-12 md:pt-16 md:pb-6">
           <header className="w-full max-w-5xl mx-auto flex flex-row justify-between items-end md:items-center">
             <div className="space-y-1">
-              <h1 className="font-satoshi font-bold text-base md:text-lg leading-tight">
+              <h1
+                onClick={handleNalendraClick}
+                className="font-satoshi font-bold text-base md:text-lg leading-tight lg:cursor-none select-none"
+              >
                 nalendra
               </h1>
-              <p className="text-xs md:text-sm text-gray-800 leading-tight">
-                <span className="font-satoshi font-bold">Creative</span>{" "}
-                <span className="font-tiempos italic">Spaces</span>
-              </p>
+              {easterEggActive ? (
+                <p className="text-xs md:text-sm text-gray-800 leading-tight transition-opacity duration-300">
+                  <span className="font-satoshi font-bold">
+                    {EASTER_EGG_SUBTITLE.prefix}
+                  </span>
+                  <span className="font-tiempos italic">
+                    {EASTER_EGG_SUBTITLE.emphasis}
+                  </span>
+                </p>
+              ) : (
+                <p className="text-xs md:text-sm text-gray-800 leading-tight">
+                  <span className="font-satoshi font-bold">Creative</span>{" "}
+                  <span className="font-tiempos italic">Spaces</span>
+                </p>
+              )}
             </div>
 
             <div className="flex flex-wrap justify-end md:justify-start gap-1 items-baseline max-w-[50%] md:max-w-none text-right md:text-left">
@@ -80,6 +116,7 @@ export default function RootPage() {
                   window.open("https://instagram.com/nalendrrra", "_blank")
                 }
                 className="font-satoshi font-bold text-[10px] md:text-xs hover:text-gray-600 transition-colors lg:cursor-none"
+                data-cursor-label="stalk me"
                 data-clickable="true"
               >
                 instagram,
@@ -92,6 +129,7 @@ export default function RootPage() {
                   )
                 }
                 className="font-satoshi font-bold text-[10px] md:text-xs hover:text-gray-600 transition-colors lg:cursor-none"
+                data-cursor-label="the other work"
                 data-clickable="true"
               >
                 behance,
@@ -104,6 +142,7 @@ export default function RootPage() {
                   )
                 }
                 className="font-tiempos italic text-[10px] md:text-xs hover:text-gray-600 transition-colors lg:cursor-none"
+                data-cursor-label="hire me?"
                 data-clickable="true"
               >
                 linkedin
@@ -128,7 +167,7 @@ export default function RootPage() {
                   className="relative"
                   data-aos="fade-up"
                 >
-                  <div className="flex justify-between items-baseline mb-3 md:mb-6 font-satoshi px-1">
+                  <div className="flex justify-between items-baseline mb-1.5 md:mb-3 font-satoshi px-1">
                     <h2 className="text-xs md:text-base font-medium tracking-wide">
                       {project.name}
                     </h2>

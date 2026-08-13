@@ -2,37 +2,38 @@
 
 import { useEffect, useState } from "react";
 import { useLoading } from "../contexts/LoadingContext";
+import {
+  LOADING_DONE_MESSAGE,
+  pickRandomLoadingMessage,
+} from "../data/loadingMessages";
 import styles from "../styles/LoadingOverlay.module.scss";
 
 export default function LoadingOverlay() {
   const { setIsLoading } = useLoading();
   const [fade, setFade] = useState(false);
-  const [content, setContent] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
-    let progress = 0;
+    setMessage(pickRandomLoadingMessage());
 
-    // Phase 1: Percentage counter
-    const progressInterval = setInterval(() => {
-      // Random increment between 1 and 4 to make it look organic
-      const increment = Math.floor(Math.random() * 4) + 1;
-      progress = Math.min(progress + increment, 100);
+    const midMessageTimer = setTimeout(() => {
+      setMessage(pickRandomLoadingMessage());
+    }, 700);
 
-      setContent(`${progress}%`);
+    const doneMessageTimer = setTimeout(() => {
+      setMessage(LOADING_DONE_MESSAGE);
+    }, 1300);
 
-      if (progress >= 100) {
-        clearInterval(progressInterval);
+    const fadeTimer = setTimeout(() => {
+      setFade(true);
+      setTimeout(() => setIsLoading(false), 800);
+    }, 1700);
 
-        // Phase 2: Fade out
-        setTimeout(() => {
-          setFade(true);
-          // Wait for fade animation (0.8s) before unmounting/hiding
-          setTimeout(() => setIsLoading(false), 800);
-        }, 200);
-      }
-    }, 20); // Update every 20ms
-
-    return () => clearInterval(progressInterval);
+    return () => {
+      clearTimeout(midMessageTimer);
+      clearTimeout(doneMessageTimer);
+      clearTimeout(fadeTimer);
+    };
   }, [setIsLoading]);
 
   return (
@@ -43,7 +44,7 @@ export default function LoadingOverlay() {
           : styles.loadingOverlay
       }
     >
-      <span className={styles.loadingText}>{content}</span>
+      <span className={styles.loadingMessage}>{message}</span>
     </div>
   );
 }

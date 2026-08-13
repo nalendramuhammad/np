@@ -16,12 +16,13 @@
   justify-content: center;
 }
 
-.loadingText {
+.loadingMessage {
   font-family: "Satoshi", Arial, sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
   color: #1a1a1a;
   text-align: center;
+  transition: opacity 0.25s ease;
 }
 
 .fadeOut {
