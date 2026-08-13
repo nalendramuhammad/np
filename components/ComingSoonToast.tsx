@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const COMING_SOON_MESSAGE = "coming soon, brb.";
+const COMING_SOON_MESSAGE = "coming soon.";
 
 export { COMING_SOON_MESSAGE };
 
