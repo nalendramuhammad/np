@@ -26,7 +26,7 @@ export default function ScrollHint({ hidden = false }: { hidden?: boolean }) {
 
   return (
     <div
-      className={`fixed bottom-8 left-8 z-40 transition-all duration-500 font-satoshi font-medium text-[8px] md:text-xs mix-blend-difference text-white lg:cursor-none pointer-events-none flex items-end gap-2 ${
+      className={`hidden lg:flex fixed bottom-8 left-8 z-40 transition-all duration-500 font-satoshi font-medium text-[8px] md:text-xs mix-blend-difference text-white lg:cursor-none pointer-events-none items-end gap-2 ${
         isVisible && !hidden
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4"
