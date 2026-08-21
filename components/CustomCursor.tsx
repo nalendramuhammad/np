@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
+const CURSOR_MOVE_DURATION = 0.8;
+const CURSOR_MOVE_EASE = "power3.out";
+
 export default function CustomCursor({
   isVisible = true,
 }: {
@@ -10,17 +13,28 @@ export default function CustomCursor({
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const moveXRef = useRef<gsap.QuickToFunc | null>(null);
+  const moveYRef = useRef<gsap.QuickToFunc | null>(null);
   const [isPointer, setIsPointer] = useState(false);
   const [cursorLabel, setCursorLabel] = useState<string | null>(null);
 
   const labelOnly = !!(cursorLabel && !isPointer);
 
   useEffect(() => {
+    if (!wrapperRef.current) return;
+
+    moveXRef.current = gsap.quickTo(wrapperRef.current, "x", {
+      duration: CURSOR_MOVE_DURATION,
+      ease: CURSOR_MOVE_EASE,
+    });
+    moveYRef.current = gsap.quickTo(wrapperRef.current, "y", {
+      duration: CURSOR_MOVE_DURATION,
+      ease: CURSOR_MOVE_EASE,
+    });
+
     const moveCursor = (e: MouseEvent) => {
-      requestAnimationFrame(() => {
-        setPosition({ x: e.clientX, y: e.clientY });
-      });
+      moveXRef.current?.(e.clientX);
+      moveYRef.current?.(e.clientY);
     };
 
     const checkPointer = (e: MouseEvent) => {
@@ -55,19 +69,10 @@ export default function CustomCursor({
     return () => {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("mouseover", checkPointer);
+      moveXRef.current = null;
+      moveYRef.current = null;
     };
   }, []);
-
-  useEffect(() => {
-    if (wrapperRef.current) {
-      gsap.to(wrapperRef.current, {
-        x: position.x,
-        y: position.y,
-        duration: 0.1,
-        ease: "power2.out",
-      });
-    }
-  }, [position]);
 
   useEffect(() => {
     if (!cursorRef.current) return;
