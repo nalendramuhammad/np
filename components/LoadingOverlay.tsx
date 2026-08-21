@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useLoading } from "../contexts/LoadingContext";
-import {
-  LOADING_DONE_MESSAGE,
-  pickRandomLoadingMessage,
-} from "../data/loadingMessages";
+import { getShuffledLoadingMessages } from "../data/loadingMessages";
 import styles from "../styles/LoadingOverlay.module.scss";
+
+const WORD_INTERVAL = 120;
+const FADE_DURATION = 400;
 
 export default function LoadingOverlay() {
   const { setIsLoading } = useLoading();
@@ -14,26 +14,25 @@ export default function LoadingOverlay() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    setMessage(pickRandomLoadingMessage());
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const messages = getShuffledLoadingMessages();
 
-    const midMessageTimer = setTimeout(() => {
-      setMessage(pickRandomLoadingMessage());
-    }, 700);
+    setMessage(messages[0]);
 
-    const doneMessageTimer = setTimeout(() => {
-      setMessage(LOADING_DONE_MESSAGE);
-    }, 1300);
+    for (let i = 1; i < messages.length; i++) {
+      timers.push(
+        setTimeout(() => setMessage(messages[i]), i * WORD_INTERVAL),
+      );
+    }
 
-    const fadeTimer = setTimeout(() => {
-      setFade(true);
-      setTimeout(() => setIsLoading(false), 800);
-    }, 1700);
+    timers.push(
+      setTimeout(() => {
+        setFade(true);
+        timers.push(setTimeout(() => setIsLoading(false), FADE_DURATION));
+      }, messages.length * WORD_INTERVAL),
+    );
 
-    return () => {
-      clearTimeout(midMessageTimer);
-      clearTimeout(doneMessageTimer);
-      clearTimeout(fadeTimer);
-    };
+    return () => timers.forEach(clearTimeout);
   }, [setIsLoading]);
 
   return (

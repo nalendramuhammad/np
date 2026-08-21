@@ -1,17 +1,29 @@
 export const LOADING_MESSAGES = [
-  "pretending to load...",
-  "warming up pixels",
-  "fetching good vibes",
-  "almost there (probably)",
-  "hang on a sec",
-  "loading creativity",
-  "making things pretty",
+  "hello",
+  "halo",
+  "hola",
+  "bonjour",
+  "ciao",
+  "hallo",
+  "olá",
+  "你好",
+  "こんにちは",
+  "안녕하세요",
+  "привет",
+  "مرحبا",
+  "नमस्ते",
+  "สวัสดี",
+  "xin chào",
+  "merhaba",
 ];
 
-export const LOADING_DONE_MESSAGE = "ok, go.";
+export function getShuffledLoadingMessages() {
+  const messages = [...LOADING_MESSAGES];
 
-export function pickRandomLoadingMessage() {
-  return LOADING_MESSAGES[
-    Math.floor(Math.random() * LOADING_MESSAGES.length)
-  ];
+  for (let i = messages.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [messages[i], messages[j]] = [messages[j], messages[i]];
+  }
+
+  return messages;
 }
