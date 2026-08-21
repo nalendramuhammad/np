@@ -4,7 +4,7 @@ export const LOADING_MESSAGES = [
   "hola",
   "bonjour",
   "ciao",
-  "hallo",
+  "guten tag",
   "olá",
   "你好",
   "こんにちは",
